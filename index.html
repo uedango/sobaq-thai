@@ -1,0 +1,1920 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SOBAQ — ร้านโซบะอิซากายะระดับตำนาน กว่า 14 ปีบนสุขุมวิท โซบะสดใหม่ทุกวัน">
+  <meta property="og:title" content="SOBAQ そば九 — โซบะสดใหม่ทุกวัน ใจกลางกรุงเทพฯ">
+  <meta property="og:description" content="ร้านโซบะอิซากายะระดับตำนาน กว่า 14 ปีบนสุขุมวิท สัมผัสรสชาติญี่ปุ่นแท้ๆ">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SOBAQ そば九 — โซบะสดใหม่ทุกวัน">
+  <meta name="twitter:description" content="ร้านโซบะอิซากายะระดับตำนาน กว่า 14 ปีบนสุขุมวิท">
+  <meta name="theme-color" content="#1A2744">
+  <title>SOBAQ そば九 — โซบะสดใหม่ทุกวัน ใจกลางกรุงเทพฯ</title>
+  <link rel="icon" type="image/jpeg" href="images/favicon.jpeg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800&family=Sarabun:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== CSS Custom Properties ===== */
+    :root {
+      --ink: #0C1424;
+      --navy: #1A2744;
+      --slate: #2E3A50;
+      --deep: #111827;
+      --vermilion: #C84B31;
+      --vermilion-light: #E8654F;
+      --gold: #B8976A;
+      --gold-light: #D4B896;
+      --cream: #FAF7F2;
+      --warm-white: #FEFCF9;
+      --sand: #EDE8DF;
+      --text: #E8E4DF;
+      --text-muted: #9CA3AF;
+      --line-green: #06C755;
+      --white: #FFFFFF;
+      --glass-bg: rgba(255,255,255,0.04);
+      --glass-border: rgba(255,255,255,0.08);
+      --glass-bg-hover: rgba(255,255,255,0.08);
+
+      --font-th: 'Kanit', sans-serif;
+      --font-body: 'Sarabun', sans-serif;
+      --font-jp: 'Noto Serif JP', serif;
+
+      --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      scroll-snap-type: y proximity;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--ink);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ===== Scroll Progress Bar ===== */
+    .scroll-progress {
+      position: fixed; top: 0; left: 0; z-index: 9999;
+      width: 0%; height: 3px;
+      background: linear-gradient(90deg, var(--vermilion), var(--gold));
+      transition: width 0.1s linear;
+    }
+
+    /* ===== Layout ===== */
+    .wrap {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* ===== Scroll Reveal Animations ===== */
+    .r {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.9s var(--ease), transform 0.9s var(--ease-out);
+    }
+    .r.v { opacity: 1; transform: none; }
+    .r-left {
+      opacity: 0;
+      transform: translateX(-80px);
+      transition: opacity 0.9s var(--ease), transform 0.9s var(--ease-out);
+    }
+    .r-left.v { opacity: 1; transform: none; }
+    .r-right {
+      opacity: 0;
+      transform: translateX(80px);
+      transition: opacity 0.9s var(--ease), transform 0.9s var(--ease-out);
+    }
+    .r-right.v { opacity: 1; transform: none; }
+    .r-scale {
+      opacity: 0;
+      transform: scale(0.9);
+      transition: opacity 0.9s var(--ease), transform 0.9s var(--ease-out);
+    }
+    .r-scale.v { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
+    .d4 { transition-delay: 0.4s; }
+    .d5 { transition-delay: 0.5s; }
+    .d6 { transition-delay: 0.6s; }
+
+    /* ===== Noren (暖簾) Animation ===== */
+    .noren-overlay {
+      position: fixed; inset: 0; z-index: 10000;
+      display: flex; pointer-events: none;
+    }
+    .noren-left, .noren-right {
+      width: 50%; height: 100%;
+      pointer-events: all;
+    }
+    .noren-left {
+      background: var(--ink);
+      transform-origin: left center;
+      animation: norenLeft 1.4s var(--ease-out) 0.6s forwards;
+      position: relative;
+    }
+    .noren-right {
+      background: var(--ink);
+      transform-origin: right center;
+      animation: norenRight 1.4s var(--ease-out) 0.6s forwards;
+      position: relative;
+    }
+    .noren-left::after, .noren-right::before {
+      content: '';
+      position: absolute;
+      top: 0; width: 4px; height: 100%;
+      background: var(--vermilion);
+    }
+    .noren-left::after { right: 0; }
+    .noren-right::before { left: 0; }
+    .noren-kanji {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      font-family: var(--font-jp); font-size: clamp(8rem, 20vw, 16rem);
+      font-weight: 600; color: var(--gold); opacity: 0.15;
+      pointer-events: none;
+      animation: noren-kanji-fade 1s var(--ease) 0.4s forwards;
+    }
+    @keyframes norenLeft {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-105%); pointer-events: none; }
+    }
+    @keyframes norenRight {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(105%); pointer-events: none; }
+    }
+    @keyframes noren-kanji-fade {
+      0% { opacity: 0.15; }
+      100% { opacity: 0; }
+    }
+
+    /* ===== Navigation ===== */
+    .topbar {
+      position: fixed; top: 3px; left: 0; right: 0; z-index: 200;
+      padding: 1rem 0;
+      transition: all 0.5s var(--ease);
+    }
+    .topbar.scrolled {
+      background: rgba(12,20,36,0.85);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      padding: 0.6rem 0;
+      box-shadow: 0 1px 0 rgba(255,255,255,0.05), 0 8px 32px rgba(0,0,0,0.3);
+    }
+    .topbar-inner {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo {
+      display: flex; align-items: center;
+    }
+    .logo img {
+      height: 28px; width: auto;
+      filter: brightness(0) invert(1);
+      transition: all 0.3s;
+    }
+    .topbar-links {
+      display: none; list-style: none; gap: 2.5rem;
+    }
+    .topbar-links a {
+      font-family: var(--font-th); font-size: 0.8rem; font-weight: 300;
+      color: rgba(255,255,255,0.55); letter-spacing: 0.08em;
+      transition: all 0.3s;
+      position: relative;
+      padding: 0.3rem 0;
+    }
+    .topbar-links a::after {
+      content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 1.5px;
+      background: linear-gradient(90deg, var(--vermilion), var(--gold));
+      transition: all 0.4s var(--ease-out);
+      transform: translateX(-50%);
+      border-radius: 1px;
+    }
+    .topbar-links a:hover { color: var(--white); }
+    .topbar-links a:hover::after { width: 100%; }
+
+    /* Animated Hamburger */
+    .hamburger {
+      display: flex; flex-direction: column; gap: 6px;
+      background: none; border: none; cursor: pointer; padding: 8px;
+      position: relative; z-index: 201;
+    }
+    .hamburger span {
+      width: 24px; height: 1.5px; background: var(--white);
+      transition: all 0.4s var(--ease);
+      transform-origin: center;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0; transform: scaleX(0);
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    .mobile-overlay {
+      position: fixed; inset: 0; z-index: 199;
+      background: rgba(12,20,36,0.97);
+      backdrop-filter: blur(40px);
+      -webkit-backdrop-filter: blur(40px);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 2.5rem;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.5s var(--ease);
+    }
+    .mobile-overlay.open { opacity: 1; pointer-events: all; }
+    .mobile-overlay a {
+      font-family: var(--font-th); font-size: 1.6rem; font-weight: 200;
+      color: var(--white); letter-spacing: 0.12em;
+      transition: all 0.3s;
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    .mobile-overlay.open a {
+      transform: translateY(0); opacity: 1;
+    }
+    .mobile-overlay a:nth-child(1) { transition-delay: 0.1s; }
+    .mobile-overlay a:nth-child(2) { transition-delay: 0.15s; }
+    .mobile-overlay a:nth-child(3) { transition-delay: 0.2s; }
+    .mobile-overlay a:nth-child(4) { transition-delay: 0.25s; }
+    .mobile-overlay a:nth-child(5) { transition-delay: 0.3s; }
+    .mobile-overlay a:hover { color: var(--gold); letter-spacing: 0.2em; }
+
+    @media (min-width: 768px) {
+      .topbar-links { display: flex; }
+      .hamburger { display: none; }
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      position: relative; min-height: 100vh; min-height: 100dvh;
+      display: flex; align-items: flex-end;
+      padding-bottom: clamp(5rem, 14vh, 9rem);
+      overflow: hidden; background: var(--ink);
+      scroll-snap-align: start;
+    }
+    .hero-media {
+      position: absolute; inset: 0; z-index: 0;
+    }
+    .hero-media img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: brightness(0.35) contrast(1.15) saturate(1.1);
+      transform: scale(1.05);
+      animation: heroZoom 20s ease-in-out infinite alternate;
+    }
+    @keyframes heroZoom {
+      0% { transform: scale(1.05); }
+      100% { transform: scale(1.12); }
+    }
+    .hero-media::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(12,20,36,0.5) 0%,
+        rgba(12,20,36,0.15) 35%,
+        rgba(12,20,36,0.2) 60%,
+        rgba(12,20,36,0.92) 100%
+      );
+    }
+
+    /* Hero Kanji Watermark */
+    .hero-kanji {
+      position: absolute; z-index: 1;
+      right: -5%; top: 10%;
+      font-family: var(--font-jp); font-size: clamp(20rem, 50vw, 50rem);
+      font-weight: 600; color: rgba(255,255,255,0.03);
+      line-height: 1; pointer-events: none;
+      animation: kanjiFloat 8s ease-in-out infinite alternate;
+    }
+    @keyframes kanjiFloat {
+      0% { transform: translateY(0) rotate(-2deg); }
+      100% { transform: translateY(-20px) rotate(0deg); }
+    }
+
+    .hero-content {
+      position: relative; z-index: 2; padding: 0 1.25rem;
+      max-width: 780px;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      font-family: var(--font-th); font-size: 0.72rem; font-weight: 400;
+      color: var(--gold); letter-spacing: 0.25em; text-transform: uppercase;
+      margin-bottom: 1.75rem;
+      opacity: 0; animation: heroFadeUp 1s var(--ease-out) 2.2s forwards;
+    }
+    .hero-tag::before {
+      content: ''; width: 36px; height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+    .hero h1 {
+      font-family: var(--font-th); font-weight: 200;
+      font-size: clamp(2.6rem, 7vw, 5rem);
+      color: var(--white); line-height: 1.15; letter-spacing: -0.02em;
+      margin-bottom: 1.75rem;
+    }
+    .hero h1 .line {
+      display: block;
+      opacity: 0;
+      transform: translateY(60px) rotate(2deg);
+      animation: heroLineReveal 1.2s var(--ease-out) forwards;
+    }
+    .hero h1 .line:nth-child(1) { animation-delay: 2.3s; }
+    .hero h1 .line:nth-child(2) { animation-delay: 2.5s; }
+    .hero h1 .line:nth-child(3) { animation-delay: 2.7s; }
+    .hero h1 strong { font-weight: 700; }
+    @keyframes heroLineReveal {
+      from { opacity: 0; transform: translateY(60px) rotate(2deg); }
+      to { opacity: 1; transform: none; }
+    }
+
+    .hero-desc {
+      font-family: var(--font-body); font-size: 1.05rem;
+      color: rgba(255,255,255,0.55); line-height: 1.9;
+      max-width: 520px; margin-bottom: 2.75rem;
+      opacity: 0; animation: heroFadeUp 1s var(--ease-out) 3s forwards;
+    }
+    .hero-actions {
+      display: flex; flex-wrap: wrap; gap: 0.85rem;
+      opacity: 0; animation: heroFadeUp 1s var(--ease-out) 3.2s forwards;
+    }
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: linear-gradient(135deg, var(--vermilion), #D4573D);
+      color: var(--white);
+      font-family: var(--font-th); font-size: 0.95rem; font-weight: 500;
+      padding: 0.95rem 2.5rem; border-radius: 6px; letter-spacing: 0.06em;
+      transition: all 0.4s var(--ease);
+      position: relative; overflow: hidden;
+    }
+    .btn-primary::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(200,75,49,0.4);
+    }
+    .btn-primary:hover::before { opacity: 1; }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(255,255,255,0.06); color: var(--white);
+      font-family: var(--font-th); font-size: 0.95rem; font-weight: 300;
+      padding: 0.95rem 2.5rem; border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.15); letter-spacing: 0.06em;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: all 0.4s var(--ease);
+    }
+    .btn-ghost:hover {
+      border-color: var(--gold); color: var(--gold);
+      background: rgba(184,151,106,0.08);
+    }
+
+    .hero-scroll {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+      opacity: 0; animation: heroFadeUp 1s var(--ease-out) 3.5s forwards;
+    }
+    .hero-scroll span {
+      font-family: var(--font-th); font-size: 0.6rem; font-weight: 300;
+      color: rgba(255,255,255,0.25); letter-spacing: 0.35em; text-transform: uppercase;
+    }
+    .scroll-line {
+      width: 1px; height: 50px; position: relative; overflow: hidden;
+      background: rgba(255,255,255,0.08);
+    }
+    .scroll-line::after {
+      content: ''; position: absolute; top: -100%; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(to bottom, transparent, var(--gold));
+      animation: scrollDown 2s ease-in-out infinite;
+    }
+    @keyframes scrollDown {
+      0% { top: -100%; }
+      100% { top: 100%; }
+    }
+
+    /* ===== Section Shared Styles ===== */
+    section {
+      padding: clamp(5rem, 10vw, 8rem) 0;
+      position: relative;
+    }
+
+    .sec-head {
+      text-align: center; margin-bottom: 4rem;
+    }
+    .sec-label {
+      font-family: var(--font-th); font-size: 0.7rem; font-weight: 400;
+      color: var(--gold); letter-spacing: 0.3em; text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .sec-title {
+      font-family: var(--font-th); font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+      font-weight: 200; color: var(--white); line-height: 1.3;
+    }
+    .sec-title strong { font-weight: 700; }
+    .sec-jp {
+      font-family: var(--font-jp); font-size: 0.75rem; font-weight: 300;
+      color: rgba(184,151,106,0.6); letter-spacing: 0.2em; margin-top: 0.6rem;
+      display: block;
+    }
+
+    /* ===== Decorative Kanji Background ===== */
+    .deco-kanji {
+      position: absolute; font-family: var(--font-jp);
+      font-weight: 600; color: rgba(255,255,255,0.015);
+      pointer-events: none; line-height: 1;
+    }
+
+    /* ===== Section: Why SOBAQ ===== */
+    .features {
+      background: linear-gradient(180deg, var(--ink) 0%, var(--deep) 100%);
+      position: relative; overflow: hidden;
+    }
+    .features .deco-kanji {
+      font-size: clamp(15rem, 35vw, 30rem);
+      top: -5%; left: -5%;
+    }
+
+    .feat-grid {
+      display: grid; grid-template-columns: 1fr; gap: 1.25rem;
+    }
+    .feat-card {
+      position: relative; padding: 2.5rem 2rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      transition: all 0.5s var(--ease);
+      overflow: hidden;
+    }
+    .feat-card::before {
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 100%; height: 2px;
+      background: linear-gradient(90deg, var(--vermilion), var(--gold), transparent);
+      opacity: 0; transition: opacity 0.5s;
+    }
+    .feat-card::after {
+      content: ''; position: absolute; top: -50%; right: -50%;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(200,75,49,0.06), transparent 70%);
+      border-radius: 50%;
+      opacity: 0; transition: opacity 0.5s;
+    }
+    .feat-card:hover {
+      transform: translateY(-6px);
+      background: var(--glass-bg-hover);
+      border-color: rgba(184,151,106,0.15);
+      box-shadow: 0 25px 80px rgba(0,0,0,0.3);
+    }
+    .feat-card:hover::before { opacity: 1; }
+    .feat-card:hover::after { opacity: 1; }
+    .feat-num {
+      font-family: var(--font-jp); font-size: 0.7rem; font-weight: 300;
+      color: var(--gold); letter-spacing: 0.2em; margin-bottom: 1.5rem;
+      opacity: 0.6;
+    }
+    .feat-card h3 {
+      font-family: var(--font-th); font-size: 1.15rem; font-weight: 500;
+      color: var(--white); margin-bottom: 0.8rem; line-height: 1.5;
+    }
+    .feat-card p {
+      font-size: 0.88rem; color: var(--text-muted); line-height: 1.9;
+    }
+
+    /* Counter animation */
+    .feat-counter {
+      font-family: var(--font-th); font-size: 2.5rem; font-weight: 700;
+      background: linear-gradient(135deg, var(--vermilion), var(--gold));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block; margin-bottom: 0.25rem; line-height: 1;
+    }
+    .feat-counter-unit {
+      font-size: 1rem; font-weight: 300;
+      -webkit-text-fill-color: var(--gold);
+    }
+
+    @media (min-width: 640px) {
+      .feat-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 1024px) {
+      .feat-grid { grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+    }
+
+    /* ===== Menu Section ===== */
+    .menu-sec {
+      background: linear-gradient(180deg, var(--deep) 0%, var(--ink) 50%, var(--deep) 100%);
+      position: relative; overflow: hidden;
+    }
+    .menu-sec .deco-kanji {
+      font-size: clamp(12rem, 30vw, 25rem);
+      bottom: -5%; right: -5%;
+    }
+
+    /* Menu Tabs */
+    .menu-tabs {
+      display: flex; gap: 0.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    .menu-tab {
+      font-family: var(--font-th); font-size: 0.85rem; font-weight: 400;
+      color: rgba(255,255,255,0.45);
+      padding: 0.7rem 1.5rem; border-radius: 100px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.4s var(--ease);
+      white-space: nowrap;
+      letter-spacing: 0.04em;
+    }
+    .menu-tab:hover {
+      color: rgba(255,255,255,0.8);
+      border-color: rgba(255,255,255,0.15);
+    }
+    .menu-tab.active {
+      color: var(--white);
+      background: linear-gradient(135deg, var(--vermilion), #D4573D);
+      border-color: transparent;
+      box-shadow: 0 4px 20px rgba(200,75,49,0.3);
+    }
+
+    /* Menu Panels */
+    .menu-panel {
+      display: none;
+      animation: menuFadeIn 0.5s var(--ease-out);
+    }
+    .menu-panel.active { display: block; }
+    @keyframes menuFadeIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 640px) {
+      .menu-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 1024px) {
+      .menu-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* Menu Card - Glassmorphism */
+    .menu-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.4s var(--ease);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .menu-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(184,151,106,0.2);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .menu-card-img {
+      position: relative; height: 180px; overflow: hidden;
+    }
+    .menu-card-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.6s var(--ease-out);
+    }
+    .menu-card:hover .menu-card-img img {
+      transform: scale(1.08);
+    }
+    .menu-card-badge {
+      position: absolute; top: 0.75rem; left: 0.75rem;
+      font-family: var(--font-jp); font-size: 0.65rem; font-weight: 400;
+      color: var(--white); letter-spacing: 0.08em;
+      padding: 4px 12px; border-radius: 100px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .badge-recommend {
+      background: rgba(200,75,49,0.85);
+    }
+    .badge-popular {
+      background: rgba(184,151,106,0.85);
+    }
+    .menu-card-body {
+      padding: 1.25rem;
+    }
+    .menu-card-name {
+      font-family: var(--font-th); font-size: 1rem; font-weight: 500;
+      color: var(--white); margin-bottom: 0.35rem;
+    }
+    .menu-card-desc {
+      font-size: 0.82rem; color: var(--text-muted); line-height: 1.7;
+      margin-bottom: 0.75rem;
+    }
+    .menu-card-price {
+      display: inline-flex; align-items: center;
+      font-family: var(--font-th); font-size: 1.1rem; font-weight: 600;
+      color: var(--vermilion);
+      background: rgba(200,75,49,0.08);
+      padding: 4px 14px; border-radius: 6px;
+      border: 1px solid rgba(200,75,49,0.15);
+    }
+
+    /* Drink menu - no photo variant */
+    .menu-card-no-img .menu-card-body {
+      padding: 1.5rem;
+    }
+
+    /* Course Card */
+    .course-card {
+      margin-top: 3rem; padding: 3rem 2rem;
+      background: linear-gradient(135deg, rgba(200,75,49,0.1), rgba(184,151,106,0.08));
+      border: 1px solid rgba(184,151,106,0.15);
+      border-radius: 20px; color: var(--white); text-align: center;
+      position: relative; overflow: hidden;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    .course-card::before {
+      content: ''; position: absolute; top: -60px; right: -60px;
+      width: 200px; height: 200px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(184,151,106,0.1), transparent);
+    }
+    .course-card h4 {
+      font-family: var(--font-th); font-size: 1.3rem; font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    .course-card .course-jp {
+      font-family: var(--font-jp); font-size: 0.72rem; color: var(--gold);
+      letter-spacing: 0.12em; margin-bottom: 1rem; display: block;
+    }
+    .course-card p {
+      font-size: 0.88rem; color: rgba(255,255,255,0.55); line-height: 1.85;
+      margin-bottom: 1.25rem;
+    }
+    .course-price {
+      font-family: var(--font-th); font-size: 1.8rem; font-weight: 700;
+      background: linear-gradient(135deg, var(--vermilion), var(--gold));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .course-price small {
+      font-size: 0.8rem; font-weight: 300;
+      -webkit-text-fill-color: rgba(255,255,255,0.5);
+    }
+
+    .drink-banner {
+      margin-top: 2rem; padding: 1.5rem 2rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 14px;
+      text-align: center; color: rgba(255,255,255,0.7);
+      font-family: var(--font-th); font-size: 0.95rem; font-weight: 300;
+      letter-spacing: 0.04em;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .drink-banner span { color: var(--gold); font-weight: 500; }
+
+    /* ===== Bento Grid Photo Gallery ===== */
+    .atmosphere {
+      background: linear-gradient(180deg, var(--deep) 0%, var(--ink) 50%, var(--deep) 100%);
+      overflow: hidden; position: relative;
+    }
+    .atmosphere .deco-kanji {
+      font-size: clamp(12rem, 30vw, 25rem);
+      top: 5%; left: -8%;
+    }
+
+    .atmo-intro {
+      text-align: center; max-width: 600px; margin: 0 auto 3.5rem;
+    }
+    .atmo-intro h3 {
+      font-family: var(--font-th); font-size: 1.25rem; font-weight: 300;
+      color: var(--white); margin-bottom: 0.6rem;
+    }
+    .atmo-intro p {
+      font-size: 0.9rem; color: var(--text-muted); line-height: 1.9;
+    }
+
+    /* Bento Grid */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 200px;
+      gap: 8px;
+    }
+    .bento-item {
+      position: relative; overflow: hidden;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+    .bento-item img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.7s var(--ease-out), filter 0.5s;
+    }
+    .bento-item:hover img {
+      transform: scale(1.08);
+      filter: brightness(0.7);
+    }
+    .bento-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 3rem 1rem 0.85rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      font-family: var(--font-th); font-size: 0.75rem; font-weight: 300;
+      color: var(--white); letter-spacing: 0.06em;
+      opacity: 0; transform: translateY(8px);
+      transition: all 0.4s var(--ease);
+    }
+    .bento-item:hover .bento-label {
+      opacity: 1; transform: none;
+    }
+
+    /* Bento grid sizing */
+    .bento-wide { grid-column: span 2; }
+    .bento-tall { grid-row: span 2; }
+
+    @media (min-width: 768px) {
+      .bento-grid {
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 200px;
+      }
+    }
+    @media (max-width: 767px) {
+      .bento-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 8px;
+        padding-bottom: 1rem;
+        -webkit-overflow-scrolling: touch;
+      }
+      .bento-item {
+        flex: 0 0 75vw;
+        height: 250px;
+        scroll-snap-align: center;
+      }
+      .bento-wide, .bento-tall {
+        grid-column: auto; grid-row: auto;
+      }
+      .bento-label { opacity: 1; transform: none; }
+    }
+
+    /* Floors */
+    .floors {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;
+      margin-top: 3.5rem;
+    }
+    .fl {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 14px;
+      padding: 1.35rem; display: flex; align-items: center; gap: 1rem;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transition: all 0.4s var(--ease);
+    }
+    .fl:hover {
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+      transform: translateY(-3px);
+      border-color: rgba(184,151,106,0.15);
+    }
+    .fl-badge {
+      width: 46px; height: 46px; border-radius: 12px;
+      background: linear-gradient(135deg, var(--vermilion), #D4573D);
+      color: var(--white);
+      font-family: var(--font-th); font-size: 0.7rem; font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; letter-spacing: 0.05em;
+    }
+    .fl h4 {
+      font-family: var(--font-th); font-size: 0.85rem; font-weight: 500;
+      color: var(--white); line-height: 1.4;
+    }
+    .fl p { font-size: 0.75rem; color: var(--text-muted); }
+
+    @media (max-width: 639px) {
+      .floors { grid-template-columns: 1fr; }
+    }
+
+    /* ===== Access ===== */
+    .access {
+      background: linear-gradient(180deg, var(--deep), var(--ink));
+      color: var(--white);
+      position: relative; overflow: hidden;
+    }
+    .access .deco-kanji {
+      font-size: clamp(10rem, 25vw, 20rem);
+      bottom: -5%; right: -3%;
+    }
+    .access-addr {
+      text-align: center; margin-bottom: 2.5rem;
+      font-family: var(--font-th); font-size: 1.1rem; font-weight: 300;
+      color: var(--gold);
+    }
+    .access-layout {
+      display: grid; grid-template-columns: 1fr; gap: 2.5rem;
+    }
+    .access-ways { display: flex; flex-direction: column; gap: 1rem; }
+    .aw {
+      display: flex; gap: 1.25rem; align-items: flex-start;
+      padding: 1.5rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transition: all 0.4s;
+    }
+    .aw:hover {
+      background: var(--glass-bg-hover);
+      border-color: rgba(184,151,106,0.15);
+      transform: translateX(6px);
+    }
+    .aw-icon {
+      font-size: 1.5rem; width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(200,75,49,0.1);
+      border-radius: 12px; flex-shrink: 0;
+    }
+    .aw h4 {
+      font-family: var(--font-th); font-size: 0.95rem; font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .aw p {
+      font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.7;
+    }
+    .map-embed {
+      width: 100%; aspect-ratio: 16/10; border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+    }
+    .map-embed iframe {
+      width: 100%; height: 100%; display: block;
+    }
+    .hours {
+      margin-top: 1.5rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px; padding: 1.5rem;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .hours-label {
+      font-family: var(--font-th); font-size: 0.7rem; font-weight: 400;
+      color: var(--gold); letter-spacing: 0.2em; text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .hr {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .hr:last-child { border-bottom: none; }
+    .hr-day {
+      font-family: var(--font-th); font-size: 0.88rem; font-weight: 400;
+    }
+    .hr-time {
+      font-size: 0.85rem; color: rgba(255,255,255,0.5); font-weight: 300;
+    }
+
+    @media (min-width: 768px) {
+      .access-layout { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ===== CTA ===== */
+    .cta-sec {
+      background: linear-gradient(180deg, var(--ink), var(--deep));
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta-sec::before {
+      content: ''; position: absolute; top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(200,75,49,0.06), transparent 70%);
+      border-radius: 50%;
+    }
+    .cta-sec::after {
+      content: ''; position: absolute; bottom: -200px; left: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(184,151,106,0.04), transparent 70%);
+      border-radius: 50%;
+    }
+    .cta-head {
+      font-family: var(--font-th); font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 200; color: var(--white); margin-bottom: 0.6rem;
+      position: relative;
+    }
+    .cta-head strong { font-weight: 700; }
+    .cta-desc {
+      font-size: 0.9rem; color: var(--text-muted); margin-bottom: 2.5rem;
+      max-width: 460px; margin-left: auto; margin-right: auto;
+      position: relative;
+    }
+    .cta-grid {
+      display: grid; grid-template-columns: 1fr; gap: 0.75rem;
+      max-width: 520px; margin: 0 auto;
+      position: relative;
+    }
+    .cta-btn {
+      display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+      padding: 1.1rem 1.5rem; border-radius: 12px;
+      font-family: var(--font-th); font-size: 0.95rem; font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: all 0.4s var(--ease);
+      border: 1px solid transparent;
+    }
+    .cta-btn:hover { transform: translateY(-3px); }
+    .cta-line {
+      background: var(--line-green); color: var(--white);
+      box-shadow: 0 4px 25px rgba(6,199,85,0.25);
+      font-size: 1.1rem; padding: 1.2rem 1.5rem;
+    }
+    .cta-line:hover { box-shadow: 0 12px 40px rgba(6,199,85,0.35); }
+    .cta-web {
+      background: linear-gradient(135deg, var(--vermilion), #D4573D);
+      color: var(--white);
+      box-shadow: 0 4px 25px rgba(200,75,49,0.25);
+    }
+    .cta-web:hover { box-shadow: 0 12px 40px rgba(200,75,49,0.35); }
+    .cta-tel {
+      background: var(--glass-bg); color: var(--white);
+      border-color: var(--glass-border);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .cta-tel:hover { border-color: rgba(255,255,255,0.2); }
+    .cta-del {
+      background: var(--glass-bg); color: var(--white);
+      border-color: var(--glass-border);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .cta-del:hover { border-color: rgba(255,255,255,0.2); }
+    .cta-grab {
+      background: #00B14F; color: var(--white);
+      box-shadow: 0 4px 25px rgba(0,177,79,0.25);
+    }
+    .cta-grab:hover { box-shadow: 0 12px 40px rgba(0,177,79,0.35); }
+    .cta-social {
+      margin-top: 2.5rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      position: relative;
+    }
+    .cta-social a {
+      color: var(--vermilion); font-weight: 500;
+      transition: color 0.2s;
+    }
+    .cta-social a:hover { color: var(--vermilion-light); }
+
+    @media (min-width: 640px) {
+      .cta-grid { grid-template-columns: 1fr 1fr; }
+      .cta-line { grid-column: span 2; }
+    }
+
+    /* ===== Footer ===== */
+    .footer {
+      background: var(--ink); color: rgba(255,255,255,0.35);
+      text-align: center;
+      padding: 4rem 1.25rem calc(4rem + 70px);
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .footer-brand {
+      margin-bottom: 0.5rem;
+    }
+    .footer-tagline {
+      font-family: var(--font-jp); font-size: 0.85rem; font-weight: 300;
+      color: var(--gold); letter-spacing: 0.15em; margin-bottom: 1.75rem;
+      opacity: 0.7;
+    }
+    .footer-links {
+      display: flex; justify-content: center; gap: 1rem; margin-bottom: 1.75rem;
+    }
+    .footer-links a {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; color: rgba(255,255,255,0.4);
+      transition: all 0.4s;
+    }
+    .footer-links a:hover {
+      background: var(--vermilion); color: var(--white);
+      border-color: transparent;
+      transform: translateY(-2px);
+    }
+    .footer-copy { font-size: 0.7rem; }
+
+    /* ===== Floating LINE Button ===== */
+    .fab-line {
+      position: fixed; bottom: 80px; right: 1.25rem; z-index: 150;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--line-green);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(6,199,85,0.35);
+      transition: all 0.4s var(--ease);
+      opacity: 0; transform: scale(0.6) translateY(20px);
+    }
+    .fab-line.visible {
+      opacity: 1; transform: scale(1) translateY(0);
+    }
+    .fab-line:hover {
+      transform: scale(1.1) translateY(-2px);
+      box-shadow: 0 8px 30px rgba(6,199,85,0.45);
+    }
+    .fab-line svg {
+      width: 28px; height: 28px; fill: var(--white);
+    }
+    .fab-line::after {
+      content: ''; position: absolute; inset: -4px;
+      border-radius: 50%; border: 2px solid var(--line-green);
+      animation: fabPulse 2.5s ease-in-out infinite;
+    }
+    @keyframes fabPulse {
+      0%, 100% { opacity: 0; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.25); }
+    }
+
+    /* ===== Sticky Bottom Bar ===== */
+    .sticky-bar {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 150;
+      background: rgba(12,20,36,0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 -1px 0 rgba(255,255,255,0.05);
+      display: flex; padding: 0.5rem 0.75rem; gap: 0.5rem;
+    }
+    .sticky-bar a {
+      flex: 1; display: flex; align-items: center; justify-content: center;
+      gap: 0.4rem; padding: 0.75rem 0.5rem; border-radius: 10px;
+      font-family: var(--font-th); font-size: 0.85rem; font-weight: 500;
+      transition: all 0.3s;
+    }
+    .sb-line {
+      background: var(--line-green); color: var(--white); flex: 1.6 !important;
+    }
+    .sb-line:hover { background: #05B44E; }
+    .sb-tel {
+      background: rgba(255,255,255,0.08); color: var(--white);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .sb-tel:hover { background: rgba(255,255,255,0.12); }
+
+    /* ===== Accessibility ===== */
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+    :focus-visible {
+      outline: 2px solid var(--gold); outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      html { scroll-behavior: auto; }
+      .noren-overlay { display: none; }
+      .hero-media img { animation: none; transform: none; }
+      .hero-kanji { animation: none; }
+      .hero h1 .line, .hero-tag, .hero-desc, .hero-actions, .hero-scroll {
+        opacity: 1; transform: none; animation: none;
+      }
+    }
+
+    /* ===== Parallax-like sections ===== */
+    @supports (animation-timeline: scroll()) {
+      .parallax-img {
+        animation: parallaxShift linear both;
+        animation-timeline: view();
+        animation-range: entry 0% exit 100%;
+      }
+      @keyframes parallaxShift {
+        from { transform: translateY(-30px); }
+        to { transform: translateY(30px); }
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Noren Curtain Animation -->
+  <div class="noren-overlay" id="norenOverlay" aria-hidden="true">
+    <div class="noren-left"></div>
+    <div class="noren-right"></div>
+    <div class="noren-kanji">九</div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="topbar" role="navigation" aria-label="เมนูหลัก">
+    <div class="wrap topbar-inner">
+      <a href="#hero" class="logo" aria-label="SOBAQ หน้าแรก"><img src="images/logo.png" alt="SOBAQ そば九"></a>
+      <ul class="topbar-links" role="list">
+        <li><a href="#why">จุดเด่น</a></li>
+        <li><a href="#menu">เมนูแนะนำ</a></li>
+        <li><a href="#atmosphere">บรรยากาศร้าน</a></li>
+        <li><a href="#access">การเดินทาง</a></li>
+        <li><a href="#cta">จองโต๊ะ</a></li>
+      </ul>
+      <button class="hamburger" id="hamburgerBtn" aria-label="เปิดเมนู" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-overlay" id="mobileNav" aria-label="เมนูมือถือ">
+    <a href="#why" class="mobile-link">จุดเด่น</a>
+    <a href="#menu" class="mobile-link">เมนูแนะนำ</a>
+    <a href="#atmosphere" class="mobile-link">บรรยากาศร้าน</a>
+    <a href="#access" class="mobile-link">การเดินทาง</a>
+    <a href="#cta" class="mobile-link">จองโต๊ะ</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-media">
+      <img src="images/staff-wai.jpg" alt="ทีมงาน SOBAQ ยินดีต้อนรับค่ะ" loading="eager">
+    </div>
+    <div class="hero-kanji" aria-hidden="true">九</div>
+    <div class="hero-content">
+      <div class="hero-tag">Est. 2012 — Sukhumvit Soi 41</div>
+      <h1>
+        <span class="line"><strong>โซบะสดใหม่</strong></span>
+        <span class="line">ทุกวัน</span>
+        <span class="line">ใจกลางกรุงเทพฯ</span>
+      </h1>
+      <p class="hero-desc">สัมผัสรสชาติญี่ปุ่นแท้ๆ ที่ SOBAQ ร้านโซบะอิซากายะระดับตำนาน กว่า 14 ปีบนสุขุมวิท</p>
+      <div class="hero-actions">
+        <a href="#cta" class="btn-primary">จองโต๊ะ</a>
+        <a href="#menu" class="btn-ghost">ดูเมนู</a>
+      </div>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- Why SOBAQ -->
+  <section class="features" id="why">
+    <div class="deco-kanji" aria-hidden="true">蕎</div>
+    <div class="wrap">
+      <div class="sec-head r">
+        <p class="sec-label">Why SOBAQ</p>
+        <h2 class="sec-title"><strong>ทำไมต้อง</strong> SOBAQ?</h2>
+        <span class="sec-jp">なぜSOBAQ？</span>
+      </div>
+
+      <div class="feat-grid">
+        <article class="feat-card r d1">
+          <div class="feat-num">01</div>
+          <h3>โซบะสดใหม่ทุกวัน</h3>
+          <p>เส้นโซบะสดใหม่ทุกวัน ด้วยสูตรพิเศษผสมงาดำ ให้เส้นที่เหนียวนุ่ม หอมกรุ่น เต็มเปี่ยมไปด้วยรสชาติแท้ๆ จากญี่ปุ่น</p>
+        </article>
+        <article class="feat-card r d2">
+          <div class="feat-num">02</div>
+          <span class="feat-counter" data-target="100" data-suffix="+">0</span>
+          <h3>เมนูกว่า 100 รายการ</h3>
+          <p>ไม่ใช่แค่โซบะ! จากซาชิมิสดๆ ที่บินตรงจากญี่ปุ่นทุกสัปดาห์ เทมปุระกรอบๆ เบาๆ ไปจนถึงข้าวหน้าต่างๆ ในราคาที่คุ้มค่า — ที่นี่มีครบ!</p>
+        </article>
+        <article class="feat-card r d3">
+          <div class="feat-num">03</div>
+          <h3>ปลาสดจากญี่ปุ่น บินตรงทุกสัปดาห์</h3>
+          <p>ซาชิมิและปลาย่างของเราใช้วัตถุดิบที่บินตรงจากญี่ปุ่นทุกวันอังคารและศุกร์ รับรองความสดใหม่ระดับพรีเมียม</p>
+        </article>
+        <article class="feat-card r d4">
+          <div class="feat-num">04</div>
+          <span class="feat-counter" data-target="14" data-suffix="">0</span>
+          <span class="feat-counter-unit">ปี</span>
+          <h3>14 ปีแห่งความไว้วางใจ</h3>
+          <p>เปิดให้บริการมากว่า 14 ปีบนสุขุมวิท ได้รับความไว้วางใจจากทั้งชาวญี่ปุ่นและคนไทยที่รักอาหารญี่ปุ่นแท้ๆ</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu -->
+  <section class="menu-sec" id="menu">
+    <div class="deco-kanji" aria-hidden="true">麦</div>
+    <div class="wrap">
+      <div class="sec-head r">
+        <p class="sec-label">Our Menu</p>
+        <h2 class="sec-title"><strong>เมนู</strong>แนะนำ</h2>
+        <span class="sec-jp">おすすめメニュー</span>
+      </div>
+
+      <!-- Tabs -->
+      <div class="menu-tabs r" role="tablist" aria-label="หมวดหมู่เมนู">
+        <button class="menu-tab active" role="tab" aria-selected="true" data-tab="soba">Soba</button>
+        <button class="menu-tab" role="tab" aria-selected="false" data-tab="izakaya">Izakaya</button>
+        <button class="menu-tab" role="tab" aria-selected="false" data-tab="seafood">Seafood</button>
+        <button class="menu-tab" role="tab" aria-selected="false" data-tab="drinks">Drinks</button>
+      </div>
+
+      <!-- SOBA Panel -->
+      <div class="menu-panel active" id="panel-soba" role="tabpanel">
+        <h3 class="sr-only">🥢 โซบะ — เมนูขายดีอันดับ 1</h3>
+        <div class="menu-grid">
+          <div class="menu-card r d1">
+            <div class="menu-card-img">
+              <img src="images/tenseiro.jpg" alt="เท็นเซโร" loading="lazy" class="parallax-img">
+              <span class="menu-card-badge badge-recommend">おすすめ</span>
+            </div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">เท็นเซโร</div>
+              <div class="menu-card-desc">โซบะเย็นคู่กับเทมปุระกุ้งกรอบๆ — ขายดีที่สุด!</div>
+              <div class="menu-card-price">310B</div>
+            </div>
+          </div>
+          <div class="menu-card r d2">
+            <div class="menu-card-img">
+              <img src="images/zarusoba.jpg" alt="ซารุโซบะ" loading="lazy" class="parallax-img">
+              <span class="menu-card-badge badge-popular">No.1</span>
+            </div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">ซารุโซบะ</div>
+              <div class="menu-card-desc">โซบะเย็นเส้นสดกับน้ำจิ้มสูตรพิเศษ</div>
+              <div class="menu-card-price">170B</div>
+            </div>
+          </div>
+          <div class="menu-card r d3">
+            <div class="menu-card-img">
+              <img src="images/kamo-seiro-thumb.jpg" alt="คาโมเซโร" loading="lazy" class="parallax-img">
+            </div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">คาโมเซโร</div>
+              <div class="menu-card-desc">โซบะเย็นคู่น้ำซุปเป็ดเข้มข้น</div>
+              <div class="menu-card-price">310B</div>
+            </div>
+          </div>
+          <div class="menu-card r d4">
+            <div class="menu-card-img">
+              <img src="images/tsuketororo.jpg" alt="สึเคะโทโรโระ" loading="lazy" class="parallax-img">
+            </div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">สึเคะโทโรโระ</div>
+              <div class="menu-card-desc">โซบะเย็นกับมันเทศบดเนื้อเนียน</div>
+              <div class="menu-card-price">310B</div>
+            </div>
+          </div>
+          <div class="menu-card r d5">
+            <div class="menu-card-img">
+              <img src="images/umeoroshi.jpg" alt="อุเมะโอโรชิ" loading="lazy" class="parallax-img">
+            </div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">อุเมะโอโรชิ</div>
+              <div class="menu-card-desc">โซบะเย็นกับบ๊วยและไชเท้าขูด สดชื่น</div>
+              <div class="menu-card-price">225B</div>
+            </div>
+          </div>
+          <div class="menu-card r d6">
+            <div class="menu-card-img">
+              <img src="images/curry-nanban.jpg" alt="แกงกะหรี่นัมบัง" loading="lazy" class="parallax-img">
+            </div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">แกงกะหรี่นัมบัง</div>
+              <div class="menu-card-desc">โซบะร้อนในน้ำแกงกะหรี่สไตล์ญี่ปุ่น</div>
+              <div class="menu-card-price">280B</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- IZAKAYA Panel -->
+      <div class="menu-panel" id="panel-izakaya" role="tabpanel">
+        <h3 class="sr-only">🔥 กับแกล้ม・อิซากายะ</h3>
+        <div class="menu-grid">
+          <div class="menu-card r d1">
+            <div class="menu-card-img">
+              <img src="images/beef-tataki.jpg" alt="บีฟทาทากิ" loading="lazy">
+              <span class="menu-card-badge badge-recommend">おすすめ</span>
+            </div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">บีฟทาทากิ</div>
+              <div class="menu-card-desc">เนื้อย่างสไลซ์บาง หอมนุ่มละลายในปาก</div>
+              <div class="menu-card-price">390B</div>
+            </div>
+          </div>
+          <div class="menu-card r d2">
+            <div class="menu-card-img">
+              <img src="images/seseri.jpg" alt="เซเซริยากิ" loading="lazy">
+              <span class="menu-card-badge badge-recommend">おすすめ</span>
+            </div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">เซเซริยากิ</div>
+              <div class="menu-card-desc">คอไก่ย่างเกลือ กรอบนอกนุ่มใน</div>
+              <div class="menu-card-price">240B</div>
+            </div>
+          </div>
+          <div class="menu-card r d3">
+            <div class="menu-card-img">
+              <img src="images/dashimaki.jpg" alt="ดาชิมากิ" loading="lazy">
+            </div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">ดาชิมากิ</div>
+              <div class="menu-card-desc">ไข่ม้วนดาชิ ฟูนุ่มหอมละมุน</div>
+              <div class="menu-card-price">170B</div>
+            </div>
+          </div>
+          <div class="menu-card r d4">
+            <div class="menu-card-img">
+              <img src="images/ume-cheese.jpg" alt="อุเมะชีส" loading="lazy">
+            </div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">อุเมะชีส</div>
+              <div class="menu-card-desc">ชีสกับบ๊วยญี่ปุ่น ห่อสาหร่าย — แนะนำ!</div>
+              <div class="menu-card-price">150B</div>
+            </div>
+          </div>
+          <div class="menu-card r d5">
+            <div class="menu-card-img">
+              <img src="images/bonjiri.jpg" alt="บนจิริยากิ" loading="lazy">
+            </div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">บนจิริยากิ</div>
+              <div class="menu-card-desc">ก้นไก่ย่างเกลือ กรอบมาก</div>
+              <div class="menu-card-price">230B</div>
+            </div>
+          </div>
+          <div class="menu-card r d6">
+            <div class="menu-card-img">
+              <img src="images/nasu-gyoza.jpg" alt="นาสุเกี๊ยวซ่า" loading="lazy">
+            </div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">นาสุเกี๊ยวซ่า</div>
+              <div class="menu-card-desc">เกี๊ยวซ่ามะเขือม่วง สไตล์โฮมเมด</div>
+              <div class="menu-card-price">230B</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEAFOOD Panel -->
+      <div class="menu-panel" id="panel-seafood" role="tabpanel">
+        <h3 class="sr-only">🐟 อาหารทะเล・ข้าวหน้า</h3>
+        <div class="menu-grid">
+          <div class="menu-card r d1">
+            <div class="menu-card-img">
+              <img src="images/maaji.jpg" alt="มาอาจิ โอสึคุริ" loading="lazy">
+              <span class="menu-card-badge badge-recommend">おすすめ</span>
+            </div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">มาอาจิ โอสึคุริ</div>
+              <div class="menu-card-desc">ปลาอาจิสดจากโคจิ ญี่ปุ่น ซาชิมิทั้งตัว</div>
+              <div class="menu-card-price">420B</div>
+            </div>
+          </div>
+          <div class="menu-card r d2">
+            <div class="menu-card-img">
+              <img src="images/karei-saikyo.jpg" alt="คาเรอิไซเคียวยากิ" loading="lazy">
+              <span class="menu-card-badge badge-recommend">おすすめ</span>
+            </div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">คาเรอิไซเคียวยากิ</div>
+              <div class="menu-card-desc">ปลาคาเรอิย่างซอสมิโซะไซเคียว หอมหวาน</div>
+              <div class="menu-card-price">270B</div>
+            </div>
+          </div>
+          <div class="menu-card r d3">
+            <div class="menu-card-img">
+              <img src="images/sashimi-thumb.jpg" alt="ซาชิมิรวม 3 ชนิด" loading="lazy">
+            </div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">ซาชิมิรวม 3 ชนิด</div>
+              <div class="menu-card-desc">ปลาสดจากญี่ปุ่น 3 ชนิด บินตรงทุกสัปดาห์</div>
+              <div class="menu-card-price">499B</div>
+            </div>
+          </div>
+          <div class="menu-card r d4">
+            <div class="menu-card-img">
+              <img src="images/surume-ika.jpg" alt="สุรุเมะอิกะยากิ" loading="lazy">
+            </div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">สุรุเมะอิกะยากิ</div>
+              <div class="menu-card-desc">ปลาหมึกญี่ปุ่นย่าง นำเข้าจากญี่ปุ่น</div>
+              <div class="menu-card-price">399B</div>
+            </div>
+          </div>
+          <div class="menu-card r d5">
+            <div class="menu-card-img">
+              <img src="images/salmon-don.jpg" alt="ข้าวหน้าแซลมอน 3 สี" loading="lazy">
+            </div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">ข้าวหน้าแซลมอน 3 สี</div>
+              <div class="menu-card-desc">แซลมอนสด 3 แบบบนข้าวญี่ปุ่น</div>
+              <div class="menu-card-price">300B</div>
+            </div>
+          </div>
+          <div class="menu-card r d6">
+            <div class="menu-card-img">
+              <img src="images/hamaguri-miso.jpg" alt="ซุปมิโซะหอยฮามากุริ" loading="lazy">
+            </div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">ซุปมิโซะหอยฮามากุริ</div>
+              <div class="menu-card-desc">ซุปมิโซะร้อนๆ กับหอยตลับญี่ปุ่น</div>
+              <div class="menu-card-price">70B</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DRINKS Panel -->
+      <div class="menu-panel" id="panel-drinks" role="tabpanel">
+        <h3 class="sr-only">🍺 เครื่องดื่ม — สั่งมากที่สุด!</h3>
+        <div class="menu-grid">
+          <div class="menu-card menu-card-no-img r d1">
+            <div class="menu-card-body">
+              <div class="menu-card-name">Asahi Draft Beer 🍻</div>
+              <span class="menu-card-badge badge-popular" style="position:static;display:inline-block;margin-bottom:0.5rem;">No.1</span>
+              <div class="menu-card-desc">เบียร์สดอาซาฮี จากญี่ปุ่น — เบอร์ 1 ของร้าน!</div>
+              <div class="menu-card-price">110B</div>
+            </div>
+          </div>
+          <div class="menu-card menu-card-no-img r d2">
+            <div class="menu-card-body">
+              <div class="menu-card-name">SOBAQ Highball</div>
+              <span class="menu-card-badge badge-recommend" style="position:static;display:inline-block;margin-bottom:0.5rem;">おすすめ</span>
+              <div class="menu-card-desc">ไฮบอลสูตรพิเศษ Dewar's — ราคาสุดคุ้ม!</div>
+              <div class="menu-card-price">89B</div>
+            </div>
+          </div>
+          <div class="menu-card menu-card-no-img r d3">
+            <div class="menu-card-body">
+              <div class="menu-card-name">Suntory Kaku Highball</div>
+              <div class="menu-card-desc">ไฮบอลซันโตรี่ คาคุ คลาสสิก</div>
+              <div class="menu-card-price">160B</div>
+            </div>
+          </div>
+          <div class="menu-card menu-card-no-img r d4">
+            <div class="menu-card-body">
+              <div class="menu-card-name">นามะเลมอนซาวร์</div>
+              <div class="menu-card-desc">เลมอนสดคั้นสด สดชื่นสุดๆ</div>
+              <div class="menu-card-price">190B</div>
+            </div>
+          </div>
+          <div class="menu-card menu-card-no-img r d5">
+            <div class="menu-card-body">
+              <div class="menu-card-name">สิงห์ขวดใหญ่</div>
+              <div class="menu-card-desc">เบียร์สิงห์ขวดใหญ่</div>
+              <div class="menu-card-price">160B</div>
+            </div>
+          </div>
+          <div class="menu-card menu-card-no-img r d6">
+            <div class="menu-card-body">
+              <div class="menu-card-name">สาเก・โชชู・ไวน์</div>
+              <div class="menu-card-desc">เครื่องดื่มแอลกอฮอล์หลากหลายกว่า 90 ชนิด</div>
+              <div class="menu-card-price">149B~</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course Menu Card -->
+      <div class="course-card r">
+        <h4>🍽️ คอร์สเมนูสำหรับกลุ่ม</h4>
+        <span class="course-jp">宴会コースメニュー</span>
+        <p>เหมาะสำหรับงานเลี้ยง ปาร์ตี้ หรือกินกับเพื่อนกลุ่มใหญ่<br>รวมอาหารหลากหลาย + เครื่องดื่ม เสิร์ฟจัดเต็ม!</p>
+        <div class="course-price">1,300B~ <small>/ท่าน</small></div>
+      </div>
+
+      <div class="drink-banner r">
+        🥢 เมนูมากกว่า <span>100 รายการ</span> — โซบะ・อิซากายะ・ซาชิมิ・ข้าวหน้า ครบ!
+      </div>
+    </div>
+  </section>
+
+  <!-- Atmosphere - Bento Grid -->
+  <section class="atmosphere" id="atmosphere">
+    <div class="deco-kanji" aria-hidden="true">酒</div>
+    <div class="wrap">
+      <div class="sec-head r">
+        <p class="sec-label">Atmosphere</p>
+        <h2 class="sec-title"><strong>บรรยากาศ</strong>ร้าน</h2>
+        <span class="sec-jp">店内の雰囲気</span>
+      </div>
+
+      <div class="atmo-intro r">
+        <h3>เหมือนนั่งอยู่ในอิซากายะที่ญี่ปุ่น</h3>
+        <p>บรรยากาศอบอุ่น ผ่อนคลาย เหมือนหลุดเข้าไปในร้านอิซากายะแท้ๆ ในโตเกียว ไม่ว่าจะมาคนเดียว มากับเพื่อน หรือจัดเลี้ยงกลุ่มใหญ่</p>
+      </div>
+
+      <div class="bento-grid r-scale">
+        <!-- Row 1 -->
+        <div class="bento-item bento-wide bento-tall">
+          <img src="images/exterior-night.jpg" alt="ด้านหน้าร้าน SOBAQ ยามค่ำ" loading="lazy">
+          <div class="bento-label">ด้านหน้าร้าน SOBAQ ยามค่ำ</div>
+        </div>
+        <div class="bento-item">
+          <img src="images/interior-table.jpg" alt="โซนโต๊ะชั้น 1" loading="lazy">
+          <div class="bento-label">โซนโต๊ะชั้น 1</div>
+        </div>
+        <div class="bento-item">
+          <img src="images/interior-booth.jpg" alt="โซนบูธชั้น 2" loading="lazy">
+          <div class="bento-label">โซนบูธชั้น 2</div>
+        </div>
+        <!-- Row 2 -->
+        <div class="bento-item">
+          <img src="images/sashimi-thumb.jpg" alt="ซาชิมิรวม ปลาสดจากญี่ปุ่น" loading="lazy">
+          <div class="bento-label">ซาชิมิรวม ปลาสดจากญี่ปุ่น</div>
+        </div>
+        <div class="bento-item">
+          <img src="images/maaji.jpg" alt="มาอาจิ โอสึคุริ 真アジのお造り" loading="lazy">
+          <div class="bento-label">มาอาจิ โอสึคุริ 真アジのお造り</div>
+        </div>
+        <!-- Row 3 -->
+        <div class="bento-item bento-wide">
+          <img src="images/karei-saikyo.jpg" alt="คาเรอิไซเคียวยากิ 西京焼き" loading="lazy">
+          <div class="bento-label">คาเรอิไซเคียวยากิ 西京焼き</div>
+        </div>
+        <div class="bento-item">
+          <img src="images/tenseiro.jpg" alt="เท็นเซโร 天せいろ" loading="lazy">
+          <div class="bento-label">เท็นเซโร 天せいろ</div>
+        </div>
+        <div class="bento-item">
+          <img src="images/salmon-don.jpg" alt="ข้าวหน้าแซลมอน 3 สี" loading="lazy">
+          <div class="bento-label">ข้าวหน้าแซลมอน 3 สี</div>
+        </div>
+        <!-- Row 4 -->
+        <div class="bento-item">
+          <img src="images/beef-tataki.jpg" alt="บีฟทาทากิ ビーフたたき" loading="lazy">
+          <div class="bento-label">บีฟทาทากิ ビーフたたき</div>
+        </div>
+        <div class="bento-item bento-tall">
+          <img src="images/surume-ika.jpg" alt="สุรุเมะอิกะยากิ スルメイカ焼き" loading="lazy">
+          <div class="bento-label">สุรุเมะอิกะยากิ スルメイカ焼き</div>
+        </div>
+        <div class="bento-item">
+          <img src="images/kamo-seiro-thumb.jpg" alt="คาโมเซโร 鴨セイロ" loading="lazy">
+          <div class="bento-label">คาโมเซโร 鴨セイロ</div>
+        </div>
+        <div class="bento-item">
+          <img src="images/dashimaki.jpg" alt="ดาชิมากิ だし巻き" loading="lazy">
+          <div class="bento-label">ดาชิมากิ だし巻き</div>
+        </div>
+        <!-- Row 5 -->
+        <div class="bento-item">
+          <img src="images/viproom.jpg" alt="ห้องส่วนตัว VIP ชั้น 3" loading="lazy">
+          <div class="bento-label">ห้องส่วนตัว VIP ชั้น 3</div>
+        </div>
+        <div class="bento-item">
+          <img src="images/nasu-gyoza.jpg" alt="นาสุเกี๊ยวซ่า ナス餃子" loading="lazy">
+          <div class="bento-label">นาสุเกี๊ยวซ่า ナス餃子</div>
+        </div>
+        <div class="bento-item">
+          <img src="images/hamaguri-miso.jpg" alt="ซุปมิโซะฮามากุริ 蛤の味噌汁" loading="lazy">
+          <div class="bento-label">ซุปมิโซะฮามากุริ 蛤の味噌汁</div>
+        </div>
+        <div class="bento-item">
+          <img src="images/staff-sashimi.jpg" alt="พนักงานกับซาชิมิสดใหม่" loading="lazy">
+          <div class="bento-label">พนักงานกับซาชิมิสดใหม่</div>
+        </div>
+        <div class="bento-item bento-wide">
+          <img src="images/staff-wai.jpg" alt="ทีมงาน SOBAQ ยินดีต้อนรับค่ะ" loading="lazy">
+          <div class="bento-label">ทีมงาน SOBAQ ยินดีต้อนรับค่ะ</div>
+        </div>
+      </div>
+
+      <div class="floors r">
+        <div class="fl">
+          <div class="fl-badge">1F</div>
+          <div><h4>โต๊ะปลอดบุหรี่</h4><p>2–8 ท่าน</p></div>
+        </div>
+        <div class="fl">
+          <div class="fl-badge">2F</div>
+          <div><h4>โต๊ะ (สูบบุหรี่ได้)</h4><p>2–24 ท่าน</p></div>
+        </div>
+        <div class="fl">
+          <div class="fl-badge">2F</div>
+          <div><h4>ห้องสไตล์ญี่ปุ่น</h4><p>2–16 ท่าน</p></div>
+        </div>
+        <div class="fl">
+          <div class="fl-badge">3F</div>
+          <div><h4>ห้องส่วนตัว</h4><p>4–8 ท่าน</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Access -->
+  <section class="access" id="access">
+    <div class="deco-kanji" aria-hidden="true">九</div>
+    <div class="wrap">
+      <div class="sec-head r">
+        <p class="sec-label">Location</p>
+        <h2 class="sec-title"><strong>วิธีการเดินทาง</strong></h2>
+        <span class="sec-jp">アクセス・営業時間</span>
+      </div>
+
+      <p class="access-addr r">ซอยสุขุมวิท 41 ใกล้ BTS พร้อมพงษ์</p>
+
+      <div class="access-layout">
+        <div class="r-left">
+          <div class="access-ways">
+            <div class="aw">
+              <div class="aw-icon">🚆</div>
+              <div>
+                <h4>BTS พร้อมพงษ์</h4>
+                <p>ทางออก 3 เดินประมาณ 6-7 นาที เดินไปทางทองหล่อ ผ่านหน้า TOPS แล้วเข้าซอย 41 เดินต่ออีกนิด ผ่านร้าน Veggiology แล้วเลี้ยวขวา</p>
+              </div>
+            </div>
+            <div class="aw">
+              <div class="aw-icon">🚕</div>
+              <div>
+                <h4>แท็กซี่</h4>
+                <p>จาก BTS พร้อมพงษ์ ประมาณ 1-2 นาที (~35 บาท)</p>
+              </div>
+            </div>
+            <div class="aw">
+              <div class="aw-icon">🚗</div>
+              <div>
+                <h4>ขับรถมาเอง</h4>
+                <p>มีที่จอดรถหน้าร้าน 7 คัน</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="r-right">
+          <div class="map-embed" aria-label="แผนที่">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1938.0!2d100.5726503!3d13.7304501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29f005a4570a3%3A0x727bdbe5f8dbd990!2z6JWO6bqm5bGF6YWS5bGL44CA6JWO6bqm5Lmd!5e0!3m2!1sth!2sth!4v1700000000000"
+              width="100%" height="100%" style="border:0; border-radius:16px;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="SOBAQ そば九 แผนที่"></iframe>
+          </div>
+          <div class="hours">
+            <div class="hours-label">เวลาเปิดทำการ</div>
+            <div class="hr">
+              <span class="hr-day">จันทร์ – ศุกร์</span>
+              <span class="hr-time">17:00 – 24:00 (L.O. 23:30)</span>
+            </div>
+            <div class="hr">
+              <span class="hr-day">เสาร์ – อาทิตย์・วันหยุด</span>
+              <span class="hr-time">12:00–15:00, 17:00–23:00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-sec" id="cta">
+    <div class="wrap">
+      <h2 class="cta-head r"><strong>จองโต๊ะ</strong>ง่ายๆ ได้เลย</h2>
+      <p class="cta-desc r">จองล่วงหน้า 2 วัน ผ่านเว็บไซต์ หรือทักหาเราทาง LINE ได้เลย</p>
+
+      <div class="cta-grid r">
+        <a href="https://line.me/R/ti/p/@sobaq" class="cta-btn cta-line" aria-label="แอดไลน์ @sobaq">
+          💬 แอดไลน์ @sobaq
+        </a>
+        <a href="https://www.sobaq.com/reservation" class="cta-btn cta-web" aria-label="จองผ่านเว็บไซต์">
+          จองผ่านเว็บไซต์
+        </a>
+        <a href="tel:026627690" class="cta-btn cta-tel" aria-label="โทร 02-662-7690">
+          📞 02-662-7690
+        </a>
+        <a href="https://www.wongnai.com/delivery/businesses/15811FC/order?af_channel=b5da262bfdd005467e293a5fb89fbeeb&af_force_deeplink=true&c=share_link&pid=lineman_app" target="_blank" rel="noopener" class="cta-btn cta-del" aria-label="สั่งเดลิเวอรี่ผ่าน LINEMAN">
+          🛵 LINEMAN Delivery
+        </a>
+        <a href="https://r.grab.com/g/6-20260215_121218_FB69D98282AD4EDBB0EF237C121DFDEC_MEXMPS-3-C66JV7DCEFLFGA" target="_blank" rel="noopener" class="cta-btn cta-grab" aria-label="สั่งเดลิเวอรี่ผ่าน GrabFood">
+          🟢 GrabFood Delivery
+        </a>
+      </div>
+
+      <div class="cta-social r" style="text-align:center;margin-top:2.5rem;padding:1.5rem;border-radius:16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);">
+        <p style="font-family:var(--font-th);font-size:1rem;font-weight:500;color:var(--gold-light);margin-bottom:0.5rem;">📢 ติดตามข่าวสารและเมนูใหม่ได้ที่</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+          <a href="https://facebook.com/sobaq" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1.5rem;border-radius:50px;background:#1877F2;color:#fff;font-family:var(--font-th);font-size:0.85rem;font-weight:500;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(24,119,242,0.4)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">📘 Facebook</a>
+          <a href="https://line.me/R/ti/p/@sobaq" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1.5rem;border-radius:50px;background:#06C755;color:#fff;font-family:var(--font-th);font-size:0.85rem;font-weight:500;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(6,199,85,0.4)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">💬 LINE @sobaq</a>
+        </div>
+        <p style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:0.75rem;">เมนูใหม่ โปรโมชั่น และข่าวสารอัปเดตก่อนใคร!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="wrap">
+      <div class="footer-brand"><img src="images/logo.png" alt="SOBAQ そば九" style="height:32px;width:auto;filter:brightness(0) invert(1);margin:0 auto;"></div>
+      <p class="footer-tagline">蕎麦屋で一杯、蕎麦で〆。</p>
+      <div class="footer-links">
+        <a href="https://facebook.com/sobaq" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
+        <a href="https://line.me/R/ti/p/@sobaq" aria-label="LINE">L</a>
+        <a href="mailto:info@sobaq.com" aria-label="อีเมล">✉</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 SOBAQ そば九 — IZAKAYA SOBAQ สุขุมวิท ซอย 41</p>
+    </div>
+  </footer>
+
+  <!-- Floating LINE Button -->
+  <a href="https://line.me/R/ti/p/@sobaq" class="fab-line" id="fabLine" aria-label="แอดไลน์ @sobaq">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+  </a>
+
+  <!-- Sticky Bottom Bar -->
+  <div class="sticky-bar" role="complementary" aria-label="ติดต่อเรา">
+    <a href="https://line.me/R/ti/p/@sobaq" class="sb-line" aria-label="LINE @sobaq">💬 LINE @sobaq</a>
+    <a href="tel:026627690" class="sb-tel" aria-label="โทร">📞 โทร</a>
+  </div>
+
+  <script>
+    // ===== Noren curtain cleanup =====
+    const norenEl = document.getElementById('norenOverlay');
+    setTimeout(() => {
+      if (norenEl) norenEl.style.display = 'none';
+    }, 2500);
+
+    // ===== Mobile nav =====
+    const hamburger = document.getElementById('hamburgerBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    const mobileLinks = mobileNav.querySelectorAll('a');
+
+    function toggleNav() {
+      const isOpen = mobileNav.classList.toggle('open');
+      hamburger.classList.toggle('active');
+      hamburger.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+    hamburger.addEventListener('click', toggleNav);
+    mobileLinks.forEach(link => link.addEventListener('click', () => {
+      if (mobileNav.classList.contains('open')) toggleNav();
+    }));
+
+    // ===== Topbar scroll state =====
+    const topbar = document.querySelector('.topbar');
+    const scrollProgress = document.getElementById('scrollProgress');
+
+    function onScroll() {
+      const scrolled = window.scrollY > 60;
+      topbar.classList.toggle('scrolled', scrolled);
+
+      // Scroll progress bar
+      const docH = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docH > 0 ? (window.scrollY / docH) * 100 : 0;
+      scrollProgress.style.width = pct + '%';
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // ===== Floating LINE button =====
+    const fabLine = document.getElementById('fabLine');
+    function checkFab() {
+      fabLine.classList.toggle('visible', window.scrollY > 500);
+    }
+    window.addEventListener('scroll', checkFab, { passive: true });
+    checkFab();
+
+    // ===== Scroll reveal with IntersectionObserver =====
+    const revealIO = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('v');
+        }
+      });
+    }, { threshold: 0.06, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('.r, .r-left, .r-right, .r-scale').forEach(el => revealIO.observe(el));
+
+    // ===== Counter Animation =====
+    const counterIO = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const el = e.target;
+          const target = parseInt(el.dataset.target, 10);
+          const suffix = el.dataset.suffix || '';
+          let current = 0;
+          const step = Math.max(1, Math.floor(target / 60));
+          const interval = setInterval(() => {
+            current += step;
+            if (current >= target) {
+              current = target;
+              clearInterval(interval);
+            }
+            el.textContent = current + suffix;
+          }, 25);
+          counterIO.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.feat-counter').forEach(el => counterIO.observe(el));
+
+    // ===== Menu Tab Switching =====
+    const tabs = document.querySelectorAll('.menu-tab');
+    const panels = document.querySelectorAll('.menu-panel');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.tab;
+
+        tabs.forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+
+        panels.forEach(p => p.classList.remove('active'));
+        const activePanel = document.getElementById('panel-' + target);
+        activePanel.classList.add('active');
+
+        // Re-trigger reveal animations for new panel items
+        activePanel.querySelectorAll('.r, .r-left, .r-right, .r-scale').forEach(el => {
+          el.classList.remove('v');
+          void el.offsetWidth; // force reflow
+          revealIO.observe(el);
+        });
+      });
+    });
+  </script>
+
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "SOBAQ そば九",
+    "alternateName": "IZAKAYA SOBAQ 蕎麦居酒屋 そば九",
+    "description": "バンコク・プロンポンで14年以上愛される蕎麦居酒屋。毎日新鮮な蕎麦と100種以上の一品料理",
+    "url": "https://sobaq.com",
+    "telephone": "+66-2-662-7690",
+    "email": "info@sobaq.com",
+    "servesCuisine": ["Japanese", "Soba", "Izakaya"],
+    "priceRange": "฿฿",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Sukhumvit Soi 41",
+      "addressLocality": "Bangkok",
+      "addressRegion": "Watthana",
+      "postalCode": "10110",
+      "addressCountry": "TH"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 13.7285,
+      "longitude": 100.5715
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "17:00",
+        "closes": "24:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Saturday","Sunday"],
+        "opens": "12:00",
+        "closes": "15:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Saturday","Sunday"],
+        "opens": "17:00",
+        "closes": "24:00"
+      }
+    ],
+    "sameAs": [
+      "https://facebook.com/sobaq",
+      "https://line.me/R/ti/p/@sobaq"
+    ]
+  }
+  </script>
+
+</body>
+</html>
