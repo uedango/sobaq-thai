@@ -153,8 +153,8 @@
     .noren-right::before { left: 0; }
     .noren-kanji {
       position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-      font-family: var(--font-jp); font-size: clamp(8rem, 20vw, 16rem);
-      font-weight: 600; color: var(--gold); opacity: 0.15;
+      width: clamp(8rem, 20vw, 16rem); height: auto;
+      opacity: 0.15;
       pointer-events: none;
       animation: noren-kanji-fade 1s var(--ease) 0.4s forwards;
     }
@@ -1142,7 +1142,7 @@
   <div class="noren-overlay" id="norenOverlay" aria-hidden="true">
     <div class="noren-left"></div>
     <div class="noren-right"></div>
-    <div class="noren-kanji">九</div>
+    <img class="noren-kanji" src="images/noren-logo.png" alt="九">
   </div>
 
   <!-- Navigation -->
