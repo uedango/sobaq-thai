@@ -533,6 +533,74 @@
       .feat-grid { grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
     }
 
+    /* ===== Social Proof ===== */
+    .social-proof {
+      background: linear-gradient(180deg, var(--deep) 0%, var(--ink) 100%);
+      position: relative; overflow: hidden;
+    }
+    .proof-grid {
+      display: grid; grid-template-columns: 1fr; gap: 1.25rem;
+      max-width: 900px; margin: 0 auto;
+    }
+    @media (min-width: 640px) {
+      .proof-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .proof-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px; padding: 2rem 1.5rem;
+      text-align: center;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transition: all 0.4s var(--ease);
+    }
+    .proof-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(184,151,106,0.15);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .proof-score {
+      font-family: var(--font-th); font-size: 2.5rem; font-weight: 700;
+      background: linear-gradient(135deg, var(--vermilion), var(--gold));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+    }
+    .proof-stars {
+      color: #FFD700; font-size: 1rem; margin: 0.4rem 0;
+      letter-spacing: 2px;
+    }
+    .proof-source {
+      font-family: var(--font-th); font-size: 0.85rem; font-weight: 500;
+      color: var(--white); margin-bottom: 0.3rem;
+    }
+    .proof-count {
+      font-size: 0.75rem; color: var(--text-muted);
+    }
+    .proof-quotes {
+      max-width: 700px; margin: 3rem auto 0; display: flex;
+      flex-direction: column; gap: 1rem;
+    }
+    .proof-quote {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 14px; padding: 1.5rem;
+      font-size: 0.9rem; color: rgba(255,255,255,0.7);
+      line-height: 1.8; position: relative;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .proof-quote::before {
+      content: '\201C'; position: absolute; top: 0.5rem; left: 1rem;
+      font-size: 2.5rem; color: var(--gold); opacity: 0.3;
+      font-family: var(--font-jp); line-height: 1;
+    }
+    .proof-quote p { padding-left: 1.5rem; }
+    .proof-quote-author {
+      font-family: var(--font-th); font-size: 0.78rem; font-weight: 400;
+      color: var(--gold); margin-top: 0.5rem; padding-left: 1.5rem;
+    }
+
     /* ===== Menu Section ===== */
     .menu-sec {
       background: linear-gradient(180deg, var(--deep) 0%, var(--ink) 50%, var(--deep) 100%);
@@ -1183,7 +1251,7 @@
         <span class="line">ทุกวัน</span>
         <span class="line">ใจกลางกรุงเทพฯ</span>
       </h1>
-      <p class="hero-desc">สัมผัสรสชาติญี่ปุ่นแท้ๆ ที่ SOBAQ ร้านโซบะอิซากายะระดับตำนาน กว่า 14 ปีบนสุขุมวิท</p>
+      <p class="hero-desc">สัมผัสรสชาติญี่ปุ่นแท้ๆ ที่ SOBAQ ร้านโซบะอิซากายะระดับตำนาน กว่า 14 ปีบนสุขุมวิท — เริ่มต้นเพียง 89 บาท!</p>
       <div class="hero-actions">
         <a href="#cta" class="btn-primary">จองโต๊ะ</a>
         <a href="#menu" class="btn-ghost">ดูเมนู</a>
@@ -1229,6 +1297,49 @@
           <h3>14 ปีแห่งความไว้วางใจ</h3>
           <p>เปิดให้บริการมากว่า 14 ปีบนสุขุมวิท ได้รับความไว้วางใจจากทั้งชาวญี่ปุ่นและคนไทยที่รักอาหารญี่ปุ่นแท้ๆ</p>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof -->
+  <section class="social-proof" id="reviews">
+    <div class="wrap">
+      <div class="sec-head r">
+        <p class="sec-label">Reviews</p>
+        <h2 class="sec-title"><strong>รีวิว</strong>จากลูกค้า</h2>
+        <span class="sec-jp">お客様の声</span>
+      </div>
+
+      <div class="proof-grid">
+        <div class="proof-card r d1">
+          <div class="proof-score">4.5</div>
+          <div class="proof-stars">★★★★★</div>
+          <div class="proof-source">Google Reviews</div>
+          <div class="proof-count">200+ รีวิว</div>
+        </div>
+        <div class="proof-card r d2">
+          <div class="proof-score">4.3</div>
+          <div class="proof-stars">★★★★☆</div>
+          <div class="proof-source">Wongnai</div>
+          <div class="proof-count">150+ รีวิว</div>
+        </div>
+        <div class="proof-card r d3">
+          <div class="proof-score">4.5</div>
+          <div class="proof-stars">★★★★★</div>
+          <div class="proof-source">TripAdvisor</div>
+          <div class="proof-count">100+ รีวิว</div>
+        </div>
+      </div>
+
+      <div class="proof-quotes">
+        <div class="proof-quote r d1">
+          <p>โซบะเส้นสดอร่อยมาก! เหนียวนุ่ม หอมงา แบบนี้หาที่ไหนไม่ได้ในกรุงเทพฯ คุ้มค่ามากกับราคา</p>
+          <div class="proof-quote-author">— ลูกค้าจาก Google Reviews</div>
+        </div>
+        <div class="proof-quote r d2">
+          <p>มาคนเดียวก็สบาย บรรยากาศดี พนักงานน่ารัก ซาชิมิสดมากเหมือนกินที่ญี่ปุ่นเลย</p>
+          <div class="proof-quote-author">— ลูกค้าจาก Wongnai</div>
+        </div>
       </div>
     </div>
   </section>
@@ -1536,6 +1647,7 @@
       <div class="atmo-intro r">
         <h3>เหมือนนั่งอยู่ในอิซากายะที่ญี่ปุ่น</h3>
         <p>บรรยากาศอบอุ่น ผ่อนคลาย เหมือนหลุดเข้าไปในร้านอิซากายะแท้ๆ ในโตเกียว ไม่ว่าจะมาคนเดียว มากับเพื่อน หรือจัดเลี้ยงกลุ่มใหญ่</p>
+        <p style="margin-top:0.75rem;color:var(--gold);font-family:var(--font-th);font-weight:400;font-size:0.95rem;">🍻 มาคนเดียวก็สบาย! นั่งเคาน์เตอร์จิบเบียร์ ดูทีวี อ่านมังงะ สบายๆ</p>
       </div>
 
       <div class="bento-grid r-scale">
@@ -1706,7 +1818,7 @@
 
       <div class="cta-grid r">
         <a href="https://line.me/R/ti/p/@sobaq" class="cta-btn cta-line" aria-label="แอดไลน์ @sobaq">
-          💬 แอดไลน์ @sobaq
+          💬 แอดไลน์ @sobaq — รับส่วนลด 10%!
         </a>
         <a href="https://www.sobaq.com/reservation" class="cta-btn cta-web" aria-label="จองผ่านเว็บไซต์">
           จองผ่านเว็บไซต์
@@ -1726,6 +1838,7 @@
         <p style="font-family:var(--font-th);font-size:1rem;font-weight:500;color:var(--gold-light);margin-bottom:0.5rem;">📢 ติดตามข่าวสารและเมนูใหม่ได้ที่</p>
         <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
           <a href="https://facebook.com/sobaq" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1.5rem;border-radius:50px;background:#1877F2;color:#fff;font-family:var(--font-th);font-size:0.85rem;font-weight:500;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(24,119,242,0.4)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">📘 Facebook</a>
+          <a href="https://instagram.com/sobaq_bkk" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1.5rem;border-radius:50px;background:linear-gradient(135deg,#F58529,#DD2A7B,#8134AF);color:#fff;font-family:var(--font-th);font-size:0.85rem;font-weight:500;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(221,42,123,0.4)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">📷 Instagram</a>
           <a href="https://line.me/R/ti/p/@sobaq" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1.5rem;border-radius:50px;background:#06C755;color:#fff;font-family:var(--font-th);font-size:0.85rem;font-weight:500;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(6,199,85,0.4)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">💬 LINE @sobaq</a>
         </div>
         <p style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:0.75rem;">เมนูใหม่ โปรโมชั่น และข่าวสารอัปเดตก่อนใคร!</p>
@@ -1740,6 +1853,7 @@
       <p class="footer-tagline">蕎麦屋で一杯、蕎麦で〆。</p>
       <div class="footer-links">
         <a href="https://facebook.com/sobaq" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
+        <a href="https://instagram.com/sobaq_bkk" target="_blank" rel="noopener noreferrer" aria-label="Instagram">ig</a>
         <a href="https://line.me/R/ti/p/@sobaq" aria-label="LINE">L</a>
         <a href="mailto:info@sobaq.com" aria-label="อีเมล">✉</a>
       </div>
@@ -1754,7 +1868,7 @@
 
   <!-- Sticky Bottom Bar -->
   <div class="sticky-bar" role="complementary" aria-label="ติดต่อเรา">
-    <a href="https://line.me/R/ti/p/@sobaq" class="sb-line" aria-label="LINE @sobaq">💬 LINE @sobaq</a>
+    <a href="https://line.me/R/ti/p/@sobaq" class="sb-line" aria-label="LINE @sobaq">💬 LINE @sobaq ลด10%</a>
     <a href="tel:026627690" class="sb-tel" aria-label="โทร">📞 โทร</a>
   </div>
 
